@@ -1,0 +1,51 @@
+package com.wangzi.test.thread;
+
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
+public class VolatileTest {
+	
+//	public volatile int inc = 0;
+//	public void increase(){
+//		inc++;
+//	}
+	
+//	public synchronized void increase(){
+//		inc++;
+//	}
+	
+//	Lock lock = new ReentrantLock();
+//	public void increase(){
+//		lock.lock();
+//		try {
+//			inc++;
+//		} finally  {
+//			lock.unlock();
+//		}
+//			
+//	}
+	
+	public  AtomicInteger inc = new AtomicInteger();
+	 
+    public  void increase() {
+        inc.getAndIncrement();
+    }
+	
+	
+	public static void main(String[] args) {
+		final VolatileTest vTest = new VolatileTest();
+		for(int i=0;i<10;i++){
+			new Thread(){
+				public void run(){
+					for(int j=0; j<1000;j++){
+						vTest.increase();
+					}
+				}
+			}.start();
+		}
+		while(Thread.activeCount()>1)  //保证前面的线程都执行完
+            Thread.yield();
+        System.out.println(vTest.inc);
+	}
+}

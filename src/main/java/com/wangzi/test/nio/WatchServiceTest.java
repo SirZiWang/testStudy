@@ -1,4 +1,4 @@
-package com.wangzi.test.io;
+package com.wangzi.test.nio;
 
 import java.io.IOException;
 import java.nio.file.FileSystems;

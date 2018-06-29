@@ -18,7 +18,7 @@ public class GuavaCatche {
 		//设置并发级别为8，并发级别是指可以同时写缓存的线程数
 		.concurrencyLevel(8)
 		//设置写缓存后8秒钟过期
-		.expireAfterWrite(8, TimeUnit.SECONDS)
+		.expireAfterWrite(800, TimeUnit.SECONDS)
 		//设置缓存容器的初始容量为10
 		.initialCapacity(10)
 		//设置缓存最大容量为100，超过100之后就会按照LRU最近虽少使用算法来移除缓存项
@@ -49,6 +49,7 @@ public class GuavaCatche {
 			//从缓存中得到数据，由于我们没有设置过缓存，所以需要通过CacheLoader加载缓存数据
 			Student student = studentCache.get(1);
 			System.out.println(student);
+			studentCache.invalidate(1);
 			//休眠1秒
 			TimeUnit.SECONDS.sleep(1);
 		}

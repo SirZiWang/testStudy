@@ -8,8 +8,8 @@ public class RateLimiterTest {
 		while(true){
 //			System.out.println(r.acquire(2));
 //			Thread.sleep(2000);
-//			System.out.println(r.acquire(1));
-//			System.out.println(r.acquire(1));
+			System.out.println(r.acquire(5));
+			System.out.println(r.acquire(1));
 			System.out.println(r.acquire(1));
 		}
 	}

@@ -19,8 +19,8 @@ import java.util.concurrent.CopyOnWriteArrayList;
  *
  */
 public class FastFailTest {
-//	private static List<String> list = new ArrayList<String>();
-    private static List<String> list = new CopyOnWriteArrayList<String>();
+	private static List<String> list = new ArrayList<String>();
+//    private static List<String> list = new CopyOnWriteArrayList<String>();
     public static void main(String[] args) {
     
         // 同时启动两个线程对list进行操作！

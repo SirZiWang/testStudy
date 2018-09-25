@@ -1,5 +1,10 @@
 package com.wangzi.test.algorithm;
 
+/**
+ * 冒泡排序
+ * @author Administrator
+ *
+ */
 public class BubbleSort {
 	public static void bubbleSort(){
 		int arr[] = {12,4,56,93,21,98,31,64,17,6,28};

@@ -1,5 +1,10 @@
 package com.wangzi.test.algorithm;
 
+/**
+ * 快速排序
+ * @author Administrator
+ *
+ */
 public class QuckSort {
 	
 	public void quickSort(int[] arr){

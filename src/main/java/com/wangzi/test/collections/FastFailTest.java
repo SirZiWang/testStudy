@@ -32,7 +32,7 @@ public class FastFailTest {
         System.out.println("");
 
         String value = null;
-        Iterator iter = list.iterator();
+        Iterator<String> iter = list.iterator();
         while(iter.hasNext()) {
             value = (String)iter.next();
             System.out.print(value+", ");

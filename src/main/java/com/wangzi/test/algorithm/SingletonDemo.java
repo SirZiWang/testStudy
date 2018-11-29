@@ -1,8 +1,5 @@
 package com.wangzi.test.algorithm;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class SingletonDemo {
 	
 	// 缺点：无论这个类是否被使用，都会创建一个instance对象

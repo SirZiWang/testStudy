@@ -24,7 +24,8 @@ public class ThreadPool {
 		if(threadPool == null){
 			synchronized(ThreadPool.class){
 				if(threadPool == null){
-					threadPool = new ThreadPoolExecutor(CORE_POOL_SIZE, 
+					threadPool = new ThreadPoolExecutor(
+							CORE_POOL_SIZE, 
 							MAX_POOL_SIZE,
 							KEEP_ALIVE_TIME, TimeUnit.SECONDS,
 							new ArrayBlockingQueue<Runnable>(WORK_QUEUE_SIZE),

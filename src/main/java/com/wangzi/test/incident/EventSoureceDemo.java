@@ -20,7 +20,7 @@ public class EventSoureceDemo {
 		this.name = "defaultName";
 	}
 	//给事件源注册监听器
-	public void addEventListenere(EventListenerDemo eventListener){
+	public void addEventListener(EventListenerDemo eventListener){
 		this.listener.add(eventListener);
 	}
 	//当事件发生时,通知注册在该事件源上的所有监听器做出相应的反应（调用回调方法）

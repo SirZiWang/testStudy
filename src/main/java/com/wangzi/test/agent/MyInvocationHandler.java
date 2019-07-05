@@ -13,7 +13,8 @@ public class MyInvocationHandler implements InvocationHandler{
     //获取目标对象的代理对象
     public Object getProxy(Object obj){
         this.obj = obj;
-        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), this);
+//        return Proxy.newProxyInstance(obj.getClass().getClassLoader(), obj.getClass().getInterfaces(), this);
+        return Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), obj.getClass().getInterfaces(), this);
     }
 
     //控制执行目标对象的方法

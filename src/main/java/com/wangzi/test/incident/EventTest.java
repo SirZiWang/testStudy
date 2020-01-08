@@ -11,5 +11,11 @@ public class EventTest {
             }  
 		});
 		eventSource.setName("hello world");
+		System.out.println((4&(16-1)) + " " + 4%16);
+		System.out.println(hash(4));
 	}
+	 static final int hash(Object key) {
+	        int h;
+	        return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+	    }
 }

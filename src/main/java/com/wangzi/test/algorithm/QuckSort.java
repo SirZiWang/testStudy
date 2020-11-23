@@ -47,6 +47,9 @@ public class QuckSort {
 		QuckSort quickSort = new QuckSort();
 		int arr[] = {22,4,56,93,21,98,31,64,17,6,28};
 		quickSort.quickSort(arr);
+		System.out.println();
+		System.out.println(System.getenv());
+		System.out.println(System.getProperties());
 	}
 
 }

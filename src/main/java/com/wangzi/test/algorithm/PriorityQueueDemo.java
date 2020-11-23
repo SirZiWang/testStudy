@@ -39,6 +39,8 @@ public class PriorityQueueDemo {
 		int[] medianII = priorityQueueDemo.medianII(nums);
 		for(int median : medianII)
 			System.out.print(median + " ");
+		System.out.println("\n");
 	}
+	
 }
 

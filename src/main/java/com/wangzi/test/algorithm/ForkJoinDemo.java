@@ -4,7 +4,7 @@ import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.RecursiveTask;
 import java.util.stream.LongStream;
 
-public class FockJoinDemo extends RecursiveTask<Long>{
+public class ForkJoinDemo extends RecursiveTask<Long>{
 
 	private static final long serialVersionUID = -3454048054107103321L;
 	
@@ -15,7 +15,7 @@ public class FockJoinDemo extends RecursiveTask<Long>{
     private int start;
     private int end;
     
-    public FockJoinDemo(int start, int end) {
+    public ForkJoinDemo(int start, int end) {
 		this.start = start;
 		this.end = end;
 	}
@@ -33,8 +33,8 @@ public class FockJoinDemo extends RecursiveTask<Long>{
             //计算容量中间值
             int middle = (start + end)/2;
             //进行递归
-            FockJoinDemo FockJoinDemo1 = new FockJoinDemo(start, middle);
-            FockJoinDemo FockJoinDemo2 = new FockJoinDemo(middle + 1, end);
+            ForkJoinDemo FockJoinDemo1 = new ForkJoinDemo(start, middle);
+            ForkJoinDemo FockJoinDemo2 = new ForkJoinDemo(middle + 1, end);
             //执行任务
             FockJoinDemo1.fork();
             FockJoinDemo2.fork();
@@ -46,22 +46,22 @@ public class FockJoinDemo extends RecursiveTask<Long>{
 	}
 	public static void main(String[] args) {
 		ForkJoinPool forkJoinPool = new ForkJoinPool();
-		FockJoinDemo fockJoinDemo = new FockJoinDemo(1, 100000000);
+		ForkJoinDemo forkJoinDemo = new ForkJoinDemo(1, 1000000000);
         long fockhoinStartTime = System.currentTimeMillis();
         //前面我们说过，任务提交中invoke可以直接返回结果
-        long result = forkJoinPool.invoke(fockJoinDemo);
+        long result = forkJoinPool.invoke(forkJoinDemo);
         System.out.println("fock/join计算结果耗时"+(System.currentTimeMillis() - fockhoinStartTime));
 
         long sum = 0;
         long normalStartTime = System.currentTimeMillis();
-        for (int i = 0; i < 100000000; i++) {
+        for (int i = 0; i < 1000000000; i++) {
             sum += i;
         }
         System.out.println("普通计算结果耗时"+(System.currentTimeMillis() - normalStartTime));
         
         long start = System.currentTimeMillis();
         
-        Long sum2 = LongStream.rangeClosed(0L, 1000000000L)
+        Long sum2 = LongStream.rangeClosed(0L, 10000000000L)
                              .parallel()
                              .sum();  
         long end = System.currentTimeMillis();

@@ -1,21 +1,30 @@
 package com.wangzi.test.collections;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Map.Entry;
 
 public class LinkedHashMapDemo {
 
 	public static void main(String[] args) {
-		LinkedHashMap<Integer, Integer> map = new LinkedHashMap<>(20, 0.75f, true);
-		for (int i = 0; i < 10; i++) {//按顺序放入1~9
-			map.put(i, i);
-		}
+		LinkedHashMap<Integer, Integer> map = new LinkedHashMap<Integer, Integer>(20, 0.75f, true) {
+			{
+				for (int i = 0; i < 10; i++) {//按顺序放入1~9
+					put(i, i);
+				}
+			}
+			@Override
+			protected boolean removeEldestEntry(Map.Entry<Integer, Integer> eldest) {
+				return size() > 3;
+			}
+		};
+
 		System.out.println("原数据："+map.toString());
 
 		for (Entry<Integer, Integer> entry:map.entrySet()) {
 			System.out.println("key="+entry.getKey()+" "+"value="+entry.getValue());
 		}
-		map.get(3);
+		map.get(7);
 		System.out.println("查询存在的某一个："+map.toString());
 		for (Entry<Integer, Integer> entry:map.entrySet()) {
 			System.out.println("key="+entry.getKey()+" "+"value="+entry.getValue());

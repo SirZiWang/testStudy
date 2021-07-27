@@ -36,4 +36,7 @@ public class ThreadPool {
 		return threadPool;
 	}
 	
+	static {
+		threadPool.allowCoreThreadTimeOut(true);
+	}
 }

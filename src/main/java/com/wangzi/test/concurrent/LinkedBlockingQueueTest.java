@@ -86,12 +86,12 @@ public class LinkedBlockingQueueTest {
         service.submit(producer);
         service.submit(producer2);
         service.submit(consumer);
-        // 程序运行5s后，所有任务停止
-//        try {
-//            Thread.sleep(1000 * 5);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-//        service.shutdownNow();
+//         程序运行5s后，所有任务停止
+        try {
+            Thread.sleep(1000 * 5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        service.shutdownNow();
     }
 }

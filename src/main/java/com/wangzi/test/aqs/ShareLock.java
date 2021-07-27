@@ -11,7 +11,7 @@ import java.util.concurrent.locks.Lock;
  * @author Administrator
  *
  */
-public class ShareLock implements Lock{
+public class ShareLock implements Lock {
 
 	private static class Sync extends AbstractQueuedSynchronizer {
 		

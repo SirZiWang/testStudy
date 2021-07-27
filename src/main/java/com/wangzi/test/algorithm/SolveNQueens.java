@@ -88,7 +88,7 @@ public class SolveNQueens {
     
 	public static void main(String[] args) {
 		SolveNQueens s = new SolveNQueens();
-		List<List<String>> solveNQueens = s.solveNQueens(4);
+		List<List<String>> solveNQueens = s.solveNQueens(5);
 		System.out.println(solveNQueens.toString());
 	}
 }

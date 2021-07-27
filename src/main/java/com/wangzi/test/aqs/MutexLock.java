@@ -49,7 +49,7 @@ public class MutexLock implements Lock{
 		 */
 		@Override
 		protected boolean isHeldExclusively() {
-			return getState() ==1;
+			return getState() == 1;
 		}
 
 		Condition newCondition() {

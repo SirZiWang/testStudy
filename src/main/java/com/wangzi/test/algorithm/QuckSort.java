@@ -1,5 +1,7 @@
 package com.wangzi.test.algorithm;
 
+import java.util.UUID;
+
 /**
  * 快速排序
  * @author Administrator
@@ -50,6 +52,7 @@ public class QuckSort {
 		System.out.println();
 		System.out.println(System.getenv());
 		System.out.println(System.getProperties());
+		System.out.println(UUID.randomUUID());
 	}
 
 }
